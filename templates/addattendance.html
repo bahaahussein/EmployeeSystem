@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Attendance</title>
+</head>
+<body>
+<h1>{{employee.name}}</h1>
+<form action="{{ url_for('newAttendance', employee_id=employee.id) }}" method = 'POST'>
+<label for="date"><b>Date: </b></label>
+<input type="date" name="date">
+<br><br>
+<label for="hours"><b>Working Hours: </b></label>
+<input type="number" name="hours">
+<br><br>
+<label for="status"><b>Status: </b></label><br>
+<input type="radio" name="status" value="0" checked> Present<br>
+<input type="radio" name="status" value="1"> Absent<br>
+<input type="radio" name="status" value="2"> Sick Leave<br>
+<input type="radio" name="status" value="3"> Day Off<br>
+<br>
+<button type="submit">Add</button>
+<a href="{{ url_for('showAttendance', employee_id=employee.id) }}">Cancel</a>
+</form>
+</body>
+</html>

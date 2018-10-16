@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit employee</title>
+</head>
+<body>
+	<form action="{{ url_for('editEmployee', employee_id=employee.id) }}" method = 'POST'>
+
+<label for="name"><b>Name: </b></label>
+<input type="text" placeholder="{{employee.name}}" name="name">
+<br><br>
+<label for="email"><b>Email: </b></label>
+<input type="text" placeholder="{{employee.email}}" name="email">
+<br><br>
+<label for="mobile"><b>Mobile Number: </b></label>
+<input type="text" name="mobile" placeholder="{{employee.mobile_number}}">
+<br><br>
+<label for="date"><b>Hire Date: </b></label>
+<input type="date" name="date" placeholder="{{employee.hire_date.strftime("%y-%m-%d")}}">
+<br><br>
+<button type="submit">Edit</button>
+<a href="{{ url_for('mainPage') }}">Cancel</a>
+</form>
+</body>
+</html>

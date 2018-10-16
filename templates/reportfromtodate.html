@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Report</title>
+</head>
+<body>
+	<h1>{{ employee.name }}</h1>
+	<form action="{{ url_for('') }}" method = 'POST'>
+	<label for="from"><b>From Date: </b></label>
+	<input type="date" name="from">
+	<br><br>
+	<label for="to"><b>Date: </b></label>
+	<input type="date" name="to">
+	<br><br>
+	<button type="submit">Check</button>
+</form>
+</body>
+</html>

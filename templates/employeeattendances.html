@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attendances</title>
+</head>
+<body>
+<h1>{{ employee.name }}</h1>
+<a href="{{ url_for('newAttendance', employee_id=employee.id) }}">Add new attendance</a><br>
+{% for attendance in attendances %}
+
+{{attendance.day.strftime("%y-%m-%d")}}<br>
+{{attendance.working_hours}}<br>
+{{attendance.getStatus()}} <br>
+<br>
+
+{% endfor %}
+
+<a href="{{ url_for('mainPage') }}">Back to Employees</a>
+</body>
+</html>

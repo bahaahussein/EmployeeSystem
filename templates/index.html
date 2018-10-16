@@ -1,0 +1,32 @@
+<html>
+<body>
+<h1>Welcome {{name}}</h1>
+<h2>Employees</h2>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<a href="{{ url_for('newEmployee') }}">Add New Employee</a>
+<br><br>
+{% for employee in employees %}
+
+{{employee.name}}<br>
+{{employee.email}}<br>
+{{employee.mobile_number}} <br>
+{{employee.hire_date.strftime("%y-%m-%d")}} <br>
+<a href="{{ url_for('editEmployee', employee_id=employee.id) }}">Edit</a><br>
+<a href="{{ url_for('deleteEmployee', employee_id=employee.id) }}">Delete</a><br>
+<a href="{{ url_for('showAttendance', employee_id=employee.id) }}">Show Attendances</a>
+<br><br>
+
+{% endfor %}
+</body>
+</html>
